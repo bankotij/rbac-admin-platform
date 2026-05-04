@@ -1,6 +1,6 @@
-# Admin Panel Web
+# RBAC Admin Platform — Web
 
-React frontend for the Admin Panel application.
+React (Vite) frontend for the RBAC admin application.
 
 ## Tech Stack
 

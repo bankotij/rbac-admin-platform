@@ -1,6 +1,6 @@
-# Admin Panel API
+# RBAC Admin Platform — API
 
-FastAPI backend for the Admin Panel application.
+FastAPI backend for the RBAC admin application.
 
 ## Setup
 

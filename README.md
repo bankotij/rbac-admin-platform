@@ -1,6 +1,6 @@
-# Admin Panel
+# RBAC Admin Platform
 
-A production-ready admin panel with FastAPI backend and React frontend. Built for speed, security, and developer experience.
+A production-ready **RBAC admin console**: FastAPI backend, React (Vite) frontend, JWT access + refresh tokens, role-based permissions, audit logging, Alembic migrations, and Docker-friendly deployment. Repository name: **`rbac-admin-platform`** (formerly published as `admin`).
 
 ## 🌐 Live Demo
 
@@ -17,6 +17,8 @@ A production-ready admin panel with FastAPI backend and React frontend. Built fo
 | **Admin** | admin@example.com | admin123 |
 | **Manager** | manager@example.com | manager123 |
 | **Viewer** | viewer@example.com | viewer123 |
+
+These accounts exist **only for the hosted demo**. Passwords are **intentionally weak** and **must not** be reused anywhere else. See [SECURITY.md](SECURITY.md).
 
 ---
 
@@ -104,6 +106,10 @@ A production-ready admin panel with FastAPI backend and React frontend. Built fo
 
 ## Quick Start
 
+**Config:** copy [`.env.example`](.env.example) to `.env` and set `SECRET_KEY` and `DATABASE_URL` for your environment.
+
+**CI:** a lightweight [GitHub Action](.github/workflows/smoke.yml) runs `tsc -b` on the web app and Python `compileall` on the API on push/PR.
+
 ### Prerequisites
 - Docker & Docker Compose
 - Node.js 18+ (for local frontend development)
@@ -113,11 +119,11 @@ A production-ready admin panel with FastAPI backend and React frontend. Built fo
 
 ```bash
 # Clone the repository
-git clone <repo-url> admin_panel
-cd admin_panel
+git clone https://github.com/bankotij/rbac-admin-platform.git
+cd rbac-admin-platform
 
-# Create .env file with your database URL
-echo "DATABASE_URL=postgresql+asyncpg://user:pass@host:5432/dbname?ssl=require" > .env
+# Copy env template and edit (see .env.example)
+cp .env.example .env
 
 # Start all services
 docker-compose up -d
@@ -221,7 +227,7 @@ curl -X POST http://localhost:8000/api/v1/projects \
 ## Project Structure
 
 ```
-admin_panel/
+rbac-admin-platform/
 ├── apps/
 │   ├── api/                    # FastAPI backend
 │   │   ├── app/
